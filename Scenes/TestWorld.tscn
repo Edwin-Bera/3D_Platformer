@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="PlaneShape" id=1]
+
+[sub_resource type="PlaneMesh" id=2]
+
+[node name="TestWorld" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.951744, 0.306892, 0, -0.306892, 0.951744, 0, 4.4091, 11.5295 )
+current = true
+
+[node name="KinematicBody" parent="." instance=ExtResource( 1 )]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.20517, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 9.67394, 0, 0, 0, 1, 0, 0, 0, 9.67394, 0, 0, 0 )
+mesh = SubResource( 2 )
